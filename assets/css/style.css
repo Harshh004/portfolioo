@@ -1,6 +1,6 @@
-/*-----------------------------------*\
+/*-----------------------------------*
   #style.css
-\*-----------------------------------*/
+-----------------------------------*/
 
 
 /**
@@ -10,10 +10,9 @@
 
 
 
-
-/*-----------------------------------*\
+/*-----------------------------------*
   #CUSTOM PROPERTY
-\*-----------------------------------*/
+-----------------------------------*/
 
 :root {
 
@@ -114,10 +113,9 @@
 
 
 
-
-/*-----------------------------------*\
+/*-----------------------------------*
   #RESET
-\*-----------------------------------*/
+-----------------------------------*/
 
 *, *::before, *::after {
   margin: 0;
@@ -160,10 +158,9 @@ body { background: var(--smoky-black); }
 
 
 
-
-/*-----------------------------------*\
+/*-----------------------------------*
   #REUSED STYLE
-\*-----------------------------------*/
+-----------------------------------*/
 
 .sidebar,
 article {
@@ -295,10 +292,9 @@ article.active {
 
 
 
-
-/*-----------------------------------*\
+/*-----------------------------------*
   #MAIN
-\*-----------------------------------*/
+-----------------------------------*/
 
 main {
   margin: 15px 12px;
@@ -309,10 +305,9 @@ main {
 
 
 
-
-/*-----------------------------------*\
+/*-----------------------------------*
   #SIDEBAR
-\*-----------------------------------*/
+-----------------------------------*/
 
 .sidebar {
   margin-bottom: 15px;
@@ -449,10 +444,9 @@ main {
 
 
 
-
-/*-----------------------------------*\
+/*-----------------------------------*
   #NAVBAR
-\*-----------------------------------*/
+-----------------------------------*/
 
 .navbar {
   position: fixed;
@@ -490,10 +484,9 @@ main {
 
 
 
-
-/*-----------------------------------*\
+/*-----------------------------------*
   #ABOUT
-\*-----------------------------------*/
+-----------------------------------*/
 
 .about .article-title { margin-bottom: 15px; }
 
@@ -759,10 +752,9 @@ main {
 
 
 
-
-/*-----------------------------------*\
+/*-----------------------------------*
   #RESUME
-\*-----------------------------------*/
+-----------------------------------*/
 
 .article-title { margin-bottom: 30px; }
 
@@ -830,50 +822,64 @@ main {
 }
 
 
-/**
- * skills 
- */
-
-.skills-title { margin-bottom: 20px; }
-
-.skills-list { padding: 20px; }
-
-
-.skills-item:not(:last-child) { margin-bottom: 15px; }
-
-.skill .title-wrapper {
+.skills-categories {
   display: flex;
-  align-items: center;
-  gap: 5px;
-  margin-bottom: 8px;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 20px;
 }
 
-.skill .title-wrapper data {
+.skill-category-btn {
   color: var(--light-gray);
-  font-size: var(--fs-7);
+  font-size: var(--fs-6);
   font-weight: var(--fw-300);
+  padding: 8px 16px;
+  border: 1px solid var(--jet);
+  border-radius: 14px;
+  transition: var(--transition-1);
 }
 
-.skill-progress-bg {
-  background: var(--jet);
-  width: 100%;
-  height: 8px;
-  border-radius: 10px;
+.skill-category-btn.active,
+.skill-category-btn:hover {
+  background: var(--orange-yellow-crayola);
+  color: var(--smoky-black);
+  border-color: var(--orange-yellow-crayola);
 }
 
-.skill-progress-fill {
-  background: var(--text-gradient-yellow);
-  height: 100%;
-  border-radius: inherit;
+.skill-category-content {
+  display: none;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 15px;
+}
+
+.skill-category-content.active {
+  display: grid;
+}
+
+.skill-box {
+  background: var(--eerie-black-2);
+  border: 1px solid var(--jet);
+  border-radius: 14px;
+  padding: 15px;
+  text-align: center;
+  color: var(--white-2);
+  font-size: var(--fs-6);
+  font-weight: var(--fw-400);
+  transition: var(--transition-1);
+}
+
+.skill-box:hover {
+  background: var(--onyx);
+  border-color: var(--orange-yellow-crayola);
 }
 
 
 
 
-
-/*-----------------------------------*\
+/*-----------------------------------*
   #PORTFOLIO
-\*-----------------------------------*/
+-----------------------------------*/
 
 .filter-list { display: none; }
 
@@ -1009,7 +1015,7 @@ main {
 
 .project-item > a:hover img { transform: scale(1.1); }
 
-.project-title,
+.project-title, 
 .project-category { margin-left: 10px; }
 
 .project-title {
@@ -1029,10 +1035,9 @@ main {
 
 
 
-
-/*-----------------------------------*\
+/*-----------------------------------*
   #BLOG
-\*-----------------------------------*/
+-----------------------------------*/
 
 .blog-posts { margin-bottom: 10px; }
 
@@ -1062,7 +1067,7 @@ main {
 
 .blog-banner-box {
   width: 100%;
-  height: 200px;
+  aspect-ratio: 16 / 9;
   border-radius: 12px;
   overflow: hidden;
 }
@@ -1117,10 +1122,9 @@ main {
 
 
 
-
-/*-----------------------------------*\
+/*-----------------------------------*
   #CONTACT
-\*-----------------------------------*/
+-----------------------------------*/
 
 .mapbox {
   position: relative;
@@ -1224,10 +1228,9 @@ textarea.form-input::-webkit-resizer { display: none; }
 
 
 
-
-/*-----------------------------------*\
+/*-----------------------------------*
   #RESPONSIVE
-\*-----------------------------------*/
+-----------------------------------*/
 
 /**
  * responsive larger than 450px screen
@@ -1251,7 +1254,6 @@ textarea.form-input::-webkit-resizer { display: none; }
   .blog-banner-box { height: auto; }
 
 }
-
 
 
 
@@ -1544,7 +1546,6 @@ textarea.form-input::-webkit-resizer { display: none; }
 
 
 
-
 /**
  * responsive larger than 768px screen
  */
@@ -1640,7 +1641,6 @@ textarea.form-input::-webkit-resizer { display: none; }
   }
   
 }
-
 
 
 
@@ -1759,7 +1759,6 @@ textarea.form-input::-webkit-resizer { display: none; }
 
 
 
-
 /**
  * responsive larger than 1250px screen
  */
@@ -1872,11 +1871,39 @@ textarea.form-input::-webkit-resizer { display: none; }
   .social-list { justify-content: center; }
 
 
-
   /**
 	 * RESUME
 	 */
 
   .timeline-text { max-width: 700px; }
 
+}
+
+.skills-categories {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.skill-category-btn {
+  color: var(--light-gray);
+  font-size: var(--fs-6);
+  font-weight: var(--fw-300);
+  padding: 8px 16px;
+  border: 1px solid var(--jet);
+  border-radius: 14px;
+  transition: var(--transition-1);
+}
+
+
+
+.skill-category-content {
+  display: none;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 15px;
+}
+
+.skill-category-content.active {
+  display: grid;
 }
