@@ -137,24 +137,27 @@ if (form) {
 const skillCategoryBtns = document.querySelectorAll('[data-category-target]');
 const skillCategoryContents = document.querySelectorAll('[data-category-content]');
 
-skillCategoryBtns.forEach(btn => {
-  btn.addEventListener('click', () => {
-    // Remove active from all buttons + contents
-    skillCategoryBtns.forEach(b => b.classList.remove('active'));
-    skillCategoryContents.forEach(c => c.classList.remove('active'));
+// Attach both click & touch for mobile safety
+['click', 'touchstart'].forEach(evt =>
+  skillCategoryBtns.forEach(btn => {
+    btn.addEventListener(evt, () => {
+      // Remove active from all
+      skillCategoryBtns.forEach(b => b.classList.remove('active'));
+      skillCategoryContents.forEach(c => c.classList.remove('active'));
 
-    // Add active to clicked button
-    btn.classList.add('active');
+      // Activate clicked button
+      btn.classList.add('active');
 
-    const target = btn.dataset.categoryTarget; // e.g. "#programming-languages"
+      const target = btn.dataset.categoryTarget;
 
-    if (target === "#all") {
-      skillCategoryContents.forEach(c => c.classList.add('active'));
-    } else {
-      const targetContent = document.querySelector(target);
-      if (targetContent) {
-        targetContent.classList.add('active');
+      if (target === "#all") {
+        skillCategoryContents.forEach(c => c.classList.add('active'));
+      } else {
+        const targetContent = document.querySelector(target);
+        if (targetContent) {
+          targetContent.classList.add('active');
+        }
       }
-    }
-  });
-});
+    });
+  })
+);
