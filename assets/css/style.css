@@ -328,7 +328,20 @@ main {
 
 .avatar-box {
   background: var(--bg-gradient-onyx);
-  border-radius: 20px;
+  width: 150px; /* Increased size */
+  height: 150px; /* Increased size */
+  border-radius: 50%; /* Make it a circle */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden; /* Hide overflowing parts of the image */
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.1); /* Add a subtle glow */
+}
+
+.avatar-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Ensure the image covers the circle */
 }
 
 .info-content .name {
