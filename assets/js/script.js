@@ -137,22 +137,21 @@ if (form) {
 const skillCategoryBtns = document.querySelectorAll('[data-category-btn]');
 const skillCategoryContents = document.querySelectorAll('[data-category-content]');
 
-if (skillCategoryBtns.length > 0 && skillCategoryContents.length > 0) {
-  skillCategoryBtns.forEach(btn => {
-    btn.addEventListener('click', () => {
-      // Deactivate all buttons and content
-      skillCategoryBtns.forEach(b => b.classList.remove('active'));
-      skillCategoryContents.forEach(c => c.classList.remove('active'));
+skillCategoryBtns.forEach(btn => {
+  btn.addEventListener('click', () => {
+    skillCategoryBtns.forEach(b => b.classList.remove('active'));
+    skillCategoryContents.forEach(c => c.classList.remove('active'));
 
-      // Activate the clicked button
-      btn.classList.add('active');
+    btn.classList.add('active');
 
-      // Activate the corresponding content
-      const targetId = btn.dataset.categoryTarget.substring(1);
-      const targetContent = document.getElementById(targetId);
+    const target = btn.dataset.categoryTarget;
+    if (target === '#all') {
+      skillCategoryContents.forEach(c => c.classList.add('active'));
+    } else {
+      const targetContent = document.querySelector(target);
       if (targetContent) {
         targetContent.classList.add('active');
       }
-    });
+    }
   });
-}
+});
