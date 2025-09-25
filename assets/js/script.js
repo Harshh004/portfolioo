@@ -134,18 +134,21 @@ if (form) {
 }
 
 // skill category selection
-const skillCategoryBtns = document.querySelectorAll('[data-category-btn]');
+const skillCategoryBtns = document.querySelectorAll('[data-category-target]');
 const skillCategoryContents = document.querySelectorAll('[data-category-content]');
 
 skillCategoryBtns.forEach(btn => {
   btn.addEventListener('click', () => {
+    // Remove active from all buttons + contents
     skillCategoryBtns.forEach(b => b.classList.remove('active'));
     skillCategoryContents.forEach(c => c.classList.remove('active'));
 
+    // Add active to clicked button
     btn.classList.add('active');
 
-    const target = btn.dataset.categoryTarget;
-    if (target === '#all') {
+    const target = btn.dataset.categoryTarget; // e.g. "#programming-languages"
+
+    if (target === "#all") {
       skillCategoryContents.forEach(c => c.classList.add('active'));
     } else {
       const targetContent = document.querySelector(target);
